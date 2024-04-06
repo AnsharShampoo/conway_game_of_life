@@ -3,6 +3,7 @@ Author: Anshar_Shampoo \
 This is a simple implementation of Conway's Game of Life in Python and pygame. 
 
 ![acimsp11](https://github.com/AnsharShampoo/conway_game_of_life/blob/main/achimsp11.png)
+
 ## What is Conway's Game of Life? 
 The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 ### Rules

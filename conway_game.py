@@ -60,28 +60,16 @@ def start_simulation(screen,squares,size):
         pygame.display.flip()
         clock.tick(60)
 
-def check_neighbours(x,y,squares,size):
+def check_neighbours(x, y, squares, size):
     alive_cells = 0
-    if(x>0 and y>0):
-        alive_cells+=squares[x-1][y-1]
-        alive_cells+=squares[x][y-1]
-        alive_cells+=squares[x-1][y]
-    elif(x>0):
-        alive_cells+=squares[x-1][y]
-    elif(y>0):
-        alive_cells+=squares[x][y-1]
-    if(x<size[0]-1 and y<size[1]-1):
-        alive_cells+=squares[x+1][y+1]
-        alive_cells+=squares[x][y+1]
-        alive_cells+=squares[x+1][y]
-    elif(x<size[0]-1):
-        alive_cells+=squares[x+1][y]
-    elif(y<size[1]-1):
-        alive_cells+=squares[x][y+1]
-    if(x>0 and y<size[1]-1):
-        alive_cells+=squares[x-1][y+1]
-    if(y>0 and x<size[0]-1):
-        alive_cells+=squares[x+1][y-1]
+    for dx in [-1, 0, 1]:
+        for dy in [-1, 0, 1]:
+            if dx == 0 and dy == 0:
+                # Skip the cell itself
+                continue
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < size[0] and 0 <= ny < size[1]:
+                alive_cells += squares[nx][ny]
     return alive_cells
 
 def simulation_event_manager(screen, squares, size):
